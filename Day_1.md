@@ -70,20 +70,7 @@ $$k_1 = f(t, \, x(t)), \:   k_2 = f(t + \Delta t /2, \, x(t) + k_1 \Delta t /2) 
 $$m \ddot x + c \dot{x} + k {x} = u$$
 は2階の微分方程式であり，上記で議論した1階の微分方程式に変換する必要がある．
 制御工学で学んだように，2階の微分方程式は変数をあらたに増やすことで，1階の微分方程式にできる．本システムの場合は， $y = \dot x$ なる変数を増やすことによって，以下の1階の微分方程式に帰着できる．
-$$\frac{d}{dt} 
-\left[
-\begin{matrix}
-x \\ 
-y
-\end{matrix}
-\right]
-= 
-\left[
-\begin{matrix}
-y \\ 
-(- c \dot{x} - k {x} + u ) /  m 
-\end{matrix}
-\right]$$
+$$\frac{d}{dt} \left[\begin{matrix} x \\ y\end{matrix} \right] =  \left[ \begin{matrix} y \\ (- c \dot{x} - k {x} + u ) /  m  \end{matrix} \right]$$
 なお，微分方程式で微分される変数（この場合は $(x, y)$）を，制御ではシステムの状態変数と呼んでいた．
 
 ```
