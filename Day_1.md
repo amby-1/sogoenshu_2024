@@ -408,6 +408,38 @@ Flight と Stance の切り替わりを判別し，運動方程式を切り替�
 まずは Flight phase (あるいは Stance phase) のみの場合（切り替えがない場合）でシミュレータを作ってみて，それがうまく動くことを確認したのちに切り替わりを考慮するなど，順を追って作成すること．
 プログラムは一気に作ってしまうと，バグとりが大変なことになる．方針が立たない場合ややることが分からない場合，教員やＴＡに遠慮なく相談してください．
 
+### ヒント: SLIPの簡易動画作成プログラム
+デバッグを行う上で，運動の様子を動画にしたほうが分かりやすいことがある．
+以下のプログラムはgnuplotを使って，SLIPの運動を簡単な動画にするプログラムである．
+なお，課題１と同様の時系列ファイルにおいて，2列目に質点のx座標，3列目に質点のy座標，6列目に脚バネの姿勢gamma，7列目にバネの長さがあると想定してプログラムしている．
+
+```plaintext
+# SLIP モデルの簡易アニメーション
+# GIFアニメーションの設定
+set terminal gif animate delay 10  # delayは各フレームの表示時間をミリ秒単位で指定 　データ間隔に合わせて調整
+set output "slip_animation2.gif"
+
+dt = 0.001 # シミュレのステップ刻み
+span = 10 # 何個のデータおきに，図を描画するか 
+
+# アニメーションの各フレームを描画
+do for [i=0:200] {  # 200は描画回数。適切に変更してください。
+
+    set title sprintf('Time : %f s', i * dt * span)
+    set xlabel 'X'
+    set ylabel 'Y'
+    set size ratio 0.2
+    set xrange [0:10]  # 必要に応じて変更
+    set yrange [0:2]  # 必要に応じて変更
+    unset key
+
+    plot 'data_slip_run.dat' every ::span*i::span*i using 2:3 with points pt 7 notitle, 'data_slip_run.dat' every ::span*i::span*i  using ($2 + $7 * sin($6)):($3 - $7 * cos($6)) with points pt 3 notitle, 'data_slip_run.dat' every ::span*i::span*i using 2:3:($7 * sin($6)):(- $7 * cos($6)) with vectors nohead notitle
+    # 2列目に質点のx座標，3列目にy座標があると想定，6列目にgamma，7列目にバネの長さ　があると想定
+}
+```
+実行すると以下のように動くはずである．
+![Animation](animation.gif)
+
 ## プログラムの妥当性の検討
 練習と同様に，作ったプログラムが妥当である（バグがない）ことを検証します．
 この運動方程式の解は解析的に求めることができない（意外だと思いますが．．．）．そのため，前回のような方法で妥当性を検証することはできない．
