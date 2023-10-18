@@ -382,7 +382,7 @@ m \ddot x  = 0,  m \ddot{y} = -mg
 ```
 Stance phase での運動方程式は以下で書ける．
 ```math
-m \ddot x  = - k (l - l_0) \sin \gamma,  m \ddot{y} = -k(l - l_0)\cos \gamma - mg
+m \ddot x  = - k (l_0 - l) \sin \gamma,  m \ddot{y} = k(l_0 - l)\cos \gamma - mg
 ```
 なお，接地相でのバネの長さ $l$と 脚の角度 $\gamma$は以下であらわされる．
 $$l = \sqrt{(x-x_{td})^2 + y^2}, \gamma = \arctan ( (x_{td} - x) / y)$$ 
