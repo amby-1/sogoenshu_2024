@@ -30,8 +30,8 @@
 # 授業計画
 以下の計画で授業を進める予定です．
 
-## 1日目　SLIPモデルを用いたシミュレーションを実現しよう
-数値計算法を復習し，SLIPモデルのシミュレータを作ります．
+## [1日目　SLIPモデルを用いたシミュレーションを実現しよう](https://github.com/amby-1/sogoenshu_2023/blob/main/Day_1.md)
+数値計算法を復習し，SLIPモデルのシミュレータを作ります．リンクは[こちら](https://github.com/amby-1/sogoenshu_2023/blob/main/Day_1.md)
 
 ## 2日目 SLIPモデルの運動を分析しよう
 SLIPモデルの周期解や安定性の評価をおこないます．
