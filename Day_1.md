@@ -372,7 +372,7 @@ Stance phase 内で，バネの長さが自然長になったら離地してFlig
 
 ## 運動方程式の導出
 
-<img src="Figs/slip_model.png" width="800" alt="SLIPモデル">
+<img src="Figs/slip_model2.png" width="800" alt="SLIPモデル">
 
 この質点の運動方程式は，ニュートンの運動方程式の導出方法で簡単に導出することができる．
 上図のように，座標系と変数を定義する．質量 $m$，バネ定数 $k$，自然長 $l_0$，重力加速度 $g$と定義し，質点の位置を $(x, y)$と表す．また，Stance相での足先の接地座標を $x_{td}$とする．
