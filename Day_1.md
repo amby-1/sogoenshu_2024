@@ -210,6 +210,74 @@ int main() {
 }
 
 ```
+簡単にサンプルプログラムの説明を行う．サンプルプログラムでは，クラス`Spring_mass`を用いて運動方程式に関わる変数と，シミュレーションのための関数を提供している．
+クラスの詳細は参考文献に譲る．誤解を恐れず簡単に述べると，クラスは「関数（メンバ関数）と変数（メンバ変数）を含む 構造体'struct'であり，メンバ関数を通して自在にメンバ変数を変更できる」程度に考えてもらえれば良い．
+
+このクラスは，メンバ変数として運動方程式の物理変数，状態量，時間を保持している．
+```cpp
+private: 
+    // メンバ変数
+    double m;        // 質量 [kg]
+    double k;        // バネ定数 [N/m]   
+    double c;        // ダンパ係数 [Ns/m]  
+    double x;        // 位置 [m]  　　＊時間とともに変化します．
+    double dx;       // 速度 [m/s]　　＊時間とともに変化　
+    double t;     // 時間 [s]　＊時間とともに変化
+```
+`private:`の記載は，クラス内部のメンバ関数でしか変数にアクセスできないという意味である（状態変数は運動方程式のみで決まるものなので，`main`など外から勝手に触られないように隠ぺいしている程度の理解で良い）．
+
+本クラスはメンバ関数として多くの関数を持っている．最初の関数のようなものは，コンストラクタと呼ばれ，クラスを定義する際に必ず実行されるものである．ここでは，物理変数や状態変数の初期化を行っている．
+```cpp
+Spring_mass(double m_, double k_, double c_, double x_, double dx_) : m(m_), k(k_), c(c_), x(x_), dx(dx_), t(0.){}
+```
+
+以下の関数は，各状態変数の微分方程式 $\dot x = f_x(t, x, y), \dot y = f_y(t, x, y)$ ( $y$はプログラム内のdx)の右辺に対応している，
+```cpp
+double func_dx(double t_, double x_, double dx_){
+    // ここにdx/dt の時間発展の式を書く (dx/dt)
+    return TODO; 
+}
+double func_ddx(double t_, double x_, double dx_){
+    // ここにddx / ddt 時間発展の式を書く (dy/dt)
+    return TODO;
+}
+```
+
+以下の関数`step_????(double dt)`で，微小時間 $\Delta t$ (dt) 後の状態変数の時間発展を，上記関数`func_???()`を用いて計算している． 
+```cpp
+// euler法
+void step_euler(double dt) {
+    TODO
+}
+// Runge kutta法
+void step_rk4(double dt) {
+    TODO
+}
+```
+
+最後に，main関数からクラス内のメンバ変数を取り出すための関数が定義されている(`get_?()`)
+
+
+次に，main関数内部の説明を行う．
+```cpp
+Spring_mass spring_mass(m, k, c, ini_x, ini_dx); // 上で作ったクラスを呼び出す
+```
+上記コマンドによって，上記のクラス`Spring_mass`を実体'spring_mass'として定義する．なお，コンストラクタを同時に呼び出して初期化している．
+
+次に，データを保存するためのファイルを作成し，
+```cpp
+std::ofstream ofs("data_runge.dat"); // データを保存するためのファイルを開く
+```
+
+`for`ループを用いて，微小時間ごとに`spring_mass`クラスの`step_??()`関数を呼び出し，クラス内の状態変数を更新する．また，ファイルへと状態変数を保存する．
+```cpp
+for (double t = 0.; t < total_time; t += dt) { // 毎ステップ，微分方程式を数値的に解く
+    ofs << spring_mass.get_t() << ", " << spring_mass.get_x()  << ", " << spring_mass.get_dx() << std::endl;  
+    spring_mass.step_rk4(dt); // ルンゲクッタ法のstep関数を呼び出して，時間と状態量を次のステップに進める
+}
+```
+以上が大まかなプログラムの流れである．
+
 
 得られた結果の時間データは，グラフにプロットしないと良く分からない．グラフ作成には様々なツールが存在し，何をつかっても構わない．
 ここでは，gnuplotを使った場合のプログラムの一例を示す．
