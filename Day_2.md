@@ -218,7 +218,7 @@ int main() {
     // set_iniVal(double x_, double dx_, double y_, double dy_, double gamma_, double x_td_)
     slip.set_iniVal(0, 5., 4.9, 0., 0.43017, 0.);
 
-    for (double t = 0.; t < total_time; t += dt) { // 毎ステップ，微分方程式を数値的に解く
+    for (double time = 0.; time < total_time - dt/2.; time += dt) { // 毎ステップ，微分方程式を数値的に解く
         ofs << slip.get_t() << ", " << slip.get_x()  << ", " << slip.get_y() << ", " << slip.get_dx()  << ", " << slip.get_dy() << ", " << slip.get_gamma()  << ", " << slip.get_l() << ", " << slip.get_E() << ", " << slip.get_is_contact() << std::endl;  // 時間と状態量をクラスから読み出し，ファイルに保存  　ファイルへの保存の仕方はC言語よりも直観的だと思います． std::endl で改行されます．
         slip.step_rk4_flight(dt); // ルンゲクッタ法のstep関数 (Flight) を呼び出して，時間と状態量を次のステップに進める 
     }
@@ -357,7 +357,7 @@ int main() {
 
     set_iniVal(0, 5., 4.9, 0., 0.43017, 0.); // 初期化する
 
-    for (double t = 0.; t < total_time; t += dt) { // 毎ステップ，微分方程式を数値的に解く
+    for (double time = 0.; time < total_time - dt/2.; time += dt) { // 毎ステップ，微分方程式を数値的に解く
         fprintf(ofs, "%f, %f, %f, %f, %f, %f, %f, %f, %d\n", 
                 t, x, y, dx, dy, get_gamma(), get_l(), get_E(), 0);
         step_rk4(dt); // ルンゲクッタ法のstep関数を呼び出して，時間と状態量を次のステップに進める
@@ -609,7 +609,7 @@ int main() {
     // set_iniVal(double x_, double dx_, double y_, double dy_, double gamma_, bool is_contact_, double x_td_)
     slip.set_iniVal(0, 4.4023, 1.05, 0., 0.43017, false, 0.);
 
-    for (double t = 0.; t < total_time; t += dt) { // 毎ステップ，微分方程式を数値的に解く
+    for (double time = 0.; time < total_time - dt/2.; time += dt) { // 毎ステップ，微分方程式を数値的に解く
         ofs << slip.get_t() << ", " << slip.get_x()  << ", " << slip.get_y() << ", " << slip.get_dx()  << ", " << slip.get_dy() << ", " << slip.get_gamma()  << ", " << slip.get_l() << ", " << slip.get_E() << ", " << slip.get_is_contact() << std::endl;  // 時間と状態量をクラスから読み出し，ファイルに保存  　ファイルへの保存の仕方はC言語よりも直観的だと思います． std::endl で改行されます．
         slip.step_rk4(dt); // ルンゲクッタ法のstep関数を呼び出して，時間と状態量を次のステップに進める
     }
@@ -741,7 +741,7 @@ int main() {
 
     set_iniVal(0, 4.4023, 1.05, 0., 0.43017, false, 0.); // 初期化する
 
-    for (double t = 0.; t < total_time; t += dt) { // 毎ステップ，微分方程式を数値的に解く
+    for (double time = 0.; time < total_time - dt/2.; time += dt) { // 毎ステップ，微分方程式を数値的に解く
         fprintf(ofs, "%f, %f, %f, %f, %f, %f, %f, %f, %d\n", 
                 t, x, y, dx, dy, get_gamma(), get_l(), get_E(), (int)is_contact);
         step_rk4(dt); // ルンゲクッタ法のstep関数を呼び出して，時間と状態量を次のステップに進める
