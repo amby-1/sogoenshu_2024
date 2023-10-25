@@ -109,10 +109,11 @@ y \\
 
 これまでの授業で培ってきた直観とあっているでしょうか？
 
-### 課題1のヒント
-C++言語の場合を例としてプログラムの構築例を示す．TODOと書かれたところは自分で書いてください．
+### 課題1のヒント 
+C++言語 と C言語 の場合を例としてプログラムの構築例を示す．TODOと書かれたところは自分で書いてください．
 （特にこのように書けという指示ではないため，プログラミングに慣れた方は自由にコーディングしてください．）
 
+### C++言語の例
 ```cpp :example1.cpp
 #include <iostream>
 #include <cmath>
@@ -197,10 +198,11 @@ int main() {
 
     std::ofstream ofs("data_runge.dat"); // データを保存するためのファイルを開く
 
-    for (double t = 0.; t < total_time; t += dt) { // 毎ステップ，微分方程式を数値的に解く
+    for (double t = 0.; t < total_time - dt/2.; t += dt) { // 毎ステップ，微分方程式を数値的に解く
         ofs << spring_mass.get_t() << ", " << spring_mass.get_x()  << ", " << spring_mass.get_dx() << std::endl;  // 時間と状態量をクラスから読み出し，ファイルに保存  　ファイルへの保存の仕方はC言語よりも直観的だと思います． std::endl で改行されます．
         spring_mass.step_rk4(dt); // ルンゲクッタ法のstep関数を呼び出して，時間と状態量を次のステップに進める
     }
+    ofs << spring_mass.get_t() << ", " << spring_mass.get_x()  << ", " << spring_mass.get_dx() << std::endl; // 最後のデータ出力
 
     ofs.close();  // ファイルを閉じる
 
@@ -272,14 +274,106 @@ std::ofstream ofs("data_runge.dat"); // データを保存するためのファ�
 
 `for`ループを用いて，微小時間ごとに`spring_mass`クラスの`step_??()`関数を呼び出し，クラス内の状態変数を更新する．また，ファイルへと状態変数を保存する．
 ```cpp
-for (double t = 0.; t < total_time; t += dt) { // 毎ステップ，微分方程式を数値的に解く
+for (double t = 0.; t < total_time -dt/2.; t += dt) { // 毎ステップ，微分方程式を数値的に解く
     ofs << spring_mass.get_t() << ", " << spring_mass.get_x()  << ", " << spring_mass.get_dx() << std::endl;  
     spring_mass.step_rk4(dt); // ルンゲクッタ法のstep関数を呼び出して，時間と状態量を次のステップに進める
 }
 ```
 以上が大まかなプログラムの流れである．
 
+### C言語の例
+分かりやすくするために，グローバル変数を用いて実装している．
+```c
+#include <stdio.h>
+#include <math.h>
+#include <stdbool.h>
 
+// 定数の設定
+const double g = 9.8;  // 重力加速度 [m/s^2]
+
+// グローバル変数の定義
+// 物理定数
+double m;        // 質量 [kg]
+double k;        // バネ定数 [N/m]   
+double c;        // ダンパ係数 [Ns/m]  
+// 状態量
+double x;        // 位置 [m]
+double dx;       // 速度 [m/s]
+// 時間
+double t;     // 時間 [s]
+
+// 初期値設定
+void set_iniVal(double x_, double dx_){
+    t = 0;
+    x = x_;
+    dx = dx_;
+}
+
+// 制御入力の計算式
+double func_u(double t){
+    return 0.;
+}
+
+// 時間発展の方程式
+//  ベクトル関数をそれぞれ要素に分けて記述
+// dx = f_1 (t, x, dx) 
+double func_dx(double t_, double x_, double dx_){
+    // TODO ここに微分方程式の右辺を書く
+    return 0; 
+}
+ 
+// ddx = f_2 (t, x, dx)
+double func_ddx(double t_, double x_, double dx_){
+    // TODO ここに時間発展の式を書く
+    return 0;
+}
+
+// 1ステップ計算させる
+// euler法
+void step_euler(double dt) {
+    // TODO dt 後の状態(x, dx) と tを計算
+    dx =  0; // TODO 
+    x  =  0; // TODO 
+    t += dt; 
+}
+
+// 時間を１ステップ進める
+// Runge kutta法
+void step_rk4(double dt) {
+    // TODO :: dt 後の状態(x, dx) と tを計算 
+}
+
+int main() {
+    // パラメータの設定
+    m = 1.;           // 質量 [kg]
+    k = 10.;           // バネ定数 [N/m]   
+    c = 0.;           // ダンパ係数 [Ns/m]  
+
+    double ini_x = 1.;        // 初期位置 [m]
+    double ini_dx = 0.;       // 初期速度 [m/s]
+    
+    double dt = 0.01;            // タイムステップ [s]
+    double total_time = 10.;    // 総計算時間 [s]
+
+    set_iniVal(ini_x, ini_dx);
+
+    FILE *ofs = fopen("data_runge_c.dat", "w");  // ファイルを書き込みモードで開く
+
+    for (double time = 0.; time < total_time - dt/2.; time += dt) {
+        fprintf(ofs, "%f, %f, %f\n",  t, x, dx); // 毎回ログを取る
+        step_rk4(dt); // euler か runge によって呼ぶ関数を変える
+    }
+    fprintf(ofs, "%f, %f, %f\n",  t, x, dx); // 最後のログを取る
+
+    fclose(ofs);  // ファイルを閉じる
+
+    printf("Calculation completed and data has been saved");
+
+    return 0;
+}
+```
+
+### Gnuplotの例
 得られた結果の時間データは，グラフにプロットしないと良く分からない．グラフ作成には様々なツールが存在し，何をつかっても構わない．
 ここでは，gnuplotを使った場合のプログラムの一例を示す．
 ```plaintext
