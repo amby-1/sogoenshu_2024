@@ -146,13 +146,15 @@ public:
         return 0.;
     }
 
-    // 時間発展の方程式
+    // 時間発展の微分方程式
     double func_dx(double t_, double x_, double dx_){
         // ここにdx/dt の時間発展の式を書く (dx/dt)
+        //  微分方程式 dx/dt = f_1(t, x, dx) の右辺を書く
         return TODO; 
     }
     double func_ddx(double t_, double x_, double dx_){
         // ここにddx / ddt 時間発展の式を書く (dy/dt)
+        //  微分方程式 ddx/dt = f_2(t, x, dx) の右辺を書く
         return TODO;
     }
 
@@ -314,7 +316,7 @@ double func_u(double t){
     return 0.;
 }
 
-// 時間発展の方程式
+// 微分方程式
 //  ベクトル関数をそれぞれ要素に分けて記述
 // dx = f_1 (t, x, dx) 
 double func_dx(double t_, double x_, double dx_){
@@ -324,7 +326,7 @@ double func_dx(double t_, double x_, double dx_){
  
 // ddx = f_2 (t, x, dx)
 double func_ddx(double t_, double x_, double dx_){
-    // TODO ここに時間発展の式を書く
+    // TODO ここに微分方程式の右辺を書く
     return 0;
 }
 
@@ -376,6 +378,9 @@ int main() {
 ### Gnuplotの例
 得られた結果の時間データは，グラフにプロットしないと良く分からない．グラフ作成には様々なツールが存在し，何をつかっても構わない．
 ここでは，gnuplotを使った場合のプログラムの一例を示す．
+
+本スクリプトを `plot.gp` のように，`.gp` 拡張子を付けて保存し，gnuplotで実行（右クリックで `プログラムから開く` ，`wgnuplot.exe` を選ぶ．既定アプリにすれば，以後ダブルクリックするだけで実行できる）すれば良い．
+
 ```plaintext
 # プロットの設定
 set title "Spring Mass Model Time Evolution"
