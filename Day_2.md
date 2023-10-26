@@ -98,7 +98,7 @@ public:
     SLIP(double m_, double k_, double l_, double gamma_) : m(m_), k(k_), l0(l_), gamma0(gamma_), x(0), dx(0), y(1), dy(0), t(0.), x_td(0.){}
 
     // 初期値設定　（時間０における，各変数の値を設定する）
-    double set_iniVal(double x_, double dx_, double y_, double dy_, double gamma_, double x_td_){
+    void set_iniVal(double x_, double dx_, double y_, double dy_, double gamma_, double x_td_){
         x = x_;
         dx = dx_;
         y = y_;
