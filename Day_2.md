@@ -536,9 +536,13 @@ public:
         //  イベント判定において，追加変数が必要であれば，クラスのメンバ変数として定義すれば良い
         //   dummy はここで使えます
 
-        // Detect switch event 
-        
-        // update toe position on the ground  
+            // Detect switch event
+        if( <離地から接地への判別> ){
+            // TODO update x_td ( toe position on the ground )  
+            is_contact = true;        
+        }else if( <接地から離地> ){
+            is_contact = false;
+        }
         
         // calc EQM（運動方程式） depending on event 
         if(is_contact){
@@ -695,10 +699,14 @@ void step_rk4(double dt) {
     //  
     //  イベント判定において，追加変数が必要であれば，グローバル変数として定義すれば良い
 
-    // Detect switch event 
-    
-    // update toe position on the ground  
-    
+    // Detect switch event
+    if( <離地から接地への判別> ){
+        // TODO update x_td ( toe position on the ground )  
+        is_contact = true;        
+    }else if( <接地から離地> ){
+        is_contact = false;
+    }
+        
     // calc EQM（運動方程式） depending on event 
     if(is_contact){
         // Stance EQM
