@@ -35,14 +35,14 @@
 # 授業計画
 以下の計画で授業を進める予定です．
 
-## [~~1日目　SLIPモデルを用いたシミュレーションを実現しよう~~ １日目 バネダンパでつながれた質点の運動をシミュレーションしよう](https://github.com/amby-1/sogoenshu_2023/blob/main/Day_1.md)
-バネダンパ系を用いて数値計算法を復習します，~~SLIPモデルのシミュレータを作ります．~~ リンクは[こちら](https://github.com/amby-1/sogoenshu_2023/blob/main/Day_1.md)
+## [1日目 バネダンパでつながれた質点の運動をシミュレーションしよう](https://github.com/amby-1/sogoenshu_2023/blob/main/Day_1.md)
+バネダンパ系を用いて数値計算法を復習します
 
-## [2日目 SLIPモデルを用いたシミュレーションを作ろう](https://github.com/amby-1/sogoenshu_2023/blob/main/Day_2.md)
+## [2日目 SLIPモデルを用いたシミュレーションを作ろう１](https://github.com/amby-1/sogoenshu_2023/blob/main/Day_2.md)
 SLIPモデルのシミュレータを作ります．
 
-## 3日目　未定
-2次元のロボットアームの位置制御や，仮想的にSLIPモデルのようにふるまわせる制御をおこないます．
+## [3日目 SLIPモデルを用いたシミュレーションを作ろう２](https://github.com/amby-1/sogoenshu_2023/blob/main/Day_2.md)
+SLIPモデルのシミュレータを完成させ，周期的な走行運動が実現できるかを確認します．
 
 # レポート
 - 各日の授業資料には，複数の課題や応用課題（任意）が含まれ，これらの課題についての取り組みをレポートとして提出してもらう予定です
