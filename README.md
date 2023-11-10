@@ -38,10 +38,10 @@
 ## [1日目 バネダンパでつながれた質点の運動をシミュレーションしよう](https://github.com/amby-1/sogoenshu_2023/blob/main/Day_1.md)
 バネダンパ系を用いて数値計算法を復習します
 
-## [2日目 SLIPモデルを用いたシミュレーションを作ろう１](https://github.com/amby-1/sogoenshu_2023/blob/main/Day_2.md)
+## [2日目 SLIPモデルを用いたシミュレーションを作ろう１](https://github.com/amby-1/sogoenshu_2023/blob/main/Day_2-3.md)
 SLIPモデルのシミュレータを作ります．
 
-## [3日目 SLIPモデルを用いたシミュレーションを作ろう２](https://github.com/amby-1/sogoenshu_2023/blob/main/Day_2.md)
+## [3日目 SLIPモデルを用いたシミュレーションを作ろう２](https://github.com/amby-1/sogoenshu_2023/blob/main/Day_2-3.md)
 SLIPモデルのシミュレータを完成させ，周期的な走行運動が実現できるかを確認します．
 
 # レポート
