@@ -16,7 +16,7 @@
 ## ポアンカレ断面と写像の概念
 $N$次元の状態空間においてシステムが運動する（微分方程式の解の流れが $N$次元空間内に存在）とする．この時に，ある状態変数の関係式を満たす $N-1$次元の超平面であるポアンカレ断面 $S$を取る．システムの解の流れが必ず断面 $S$を通るように断面を定義できれば，断面 $S$上の状態変数 $\boldsymbol{z}$の写像 $\boldsymbol P( \boldsymbol z)$によりシステムの運動を議論できる（模式図を以下に示す）．
 
-<img src="Figs/poincare.png" width="500" alt="ポアンカレ断面と写像">
+<img src="Figs/poincare.png" width="800" alt="ポアンカレ断面と写像">
 
 このとき，システムの時間発展は写像を用いて以下のように表すことができ，
 ```math
@@ -50,7 +50,7 @@ $N$次元の状態空間においてシステムが運動する（微分方程�
 \frac{ \partial P_1}{\partial z_1} & \frac{ \partial P_1}{\partial z_2} & \cdots & \frac{ \partial P_1}{\partial z_{N-1}} \\
 \frac{ \partial P_2}{\partial z_1} & \frac{ \partial P_2}{\partial z_2} & \cdots & \frac{ \partial P_2}{\partial z_{N-1}} \\
 \vdots & \vdots &  \ddots & \vdots\\
-\frac{ \partial P_{N-1}}{\partial z_1} & \frac{ \partial P_{N-1}}{\partial z_2} & \cdots & \frac{ \partial P_{N-1}}{\partial z_{N-1}} \\
+\frac{ \partial P_{N-1}}{\partial z_1} & \frac{ \partial P_{N-1}}{\partial z_2} & \cdots & \frac{ \partial P_{N-1}}{\partial z_{N-1}} 
 \end{bmatrix}
 ```
 であり，ヤコビ行列と呼ばれる．
@@ -69,7 +69,7 @@ $N$次元の状態空間においてシステムが運動する（微分方程�
 
 のタイミングにおいて，ポアンカレ断面 $S$を定義する．
 
-<img src="Figs/poincare_slip.png" width="600" alt="SLIPモデルにおけるポアンカレ断面と写像">
+<img src="Figs/poincare_slip.png" width="800" alt="SLIPモデルにおけるポアンカレ断面と写像">
 
 このとき，ポアンカレ断面における状態量は $z = y$ のみの１次元となる．$\dot{y}$ については，断面上では $\dot{y}=0$ のため考慮する必要がない． $x$ については，単調増加するだけであり周期運動に影響しないため省かれる．
  $\dot{x}$ については，断面上の状態変数となるはずだが，このシステムではエネルギーが保存するため，エネルギーの値が決まった場合に $y$から決定することができる（本資料では$\dot{x} \geq 0$の場合を考える）．
@@ -121,7 +121,7 @@ z^* - P_E(z^*) = 0
 このような非線形方程式の解の導出方法といて，Newton法を授業で習っています．
 詳細は参考資料に譲りますが，概要は図のようなアルゴリズムでした．
 
-<img src="Figs/newton.png" width="800" alt="ニュートン法の概要">
+<img src="Figs/newton.png" width="1200" alt="ニュートン法の概要">
 
 なお，このNewton法を使うためには，関数 $f(x)$の微分を求める必要があります．
 今回，この微分は解析的に計算できませんが， $f(x)$が数値計算できれば，以下のように１次近似して数値的に求めることができます．
