@@ -322,13 +322,13 @@ double func_u(double t){
 // dx = f_1 (t, x, dx) 
 double func_dx(double t_, double x_, double dx_){
     // TODO ここに微分方程式の右辺を書く
-    return 0; 
+    return TODO; 
 }
  
 // ddx = f_2 (t, x, dx)
 double func_ddx(double t_, double x_, double dx_){
     // TODO ここに微分方程式の右辺を書く
-    return 0;
+    return TODO;
 }
 
 // 1ステップ計算させる
