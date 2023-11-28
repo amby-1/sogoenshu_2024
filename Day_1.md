@@ -31,7 +31,7 @@ $$D = \frac{1}{2} c \dot{q}^2 $$
 
 つぎに，このシステムの一般化力 $Q$は，質点にかかる外力である $u$と表すことができる．
 以上から，$q_i$に対するオイラーラグランジュ方程式
-$$\frac{d}{dt} \frac{\partial L}{\partial \dot{q}_i} - \frac{\partial L}{\partial q_i} = - \frac{\partial L}{\partial \dot{q}_i} + Q_i $$
+$$\frac{d}{dt} \frac{\partial L}{\partial \dot{q}_i} - \frac{\partial L}{\partial q_i} = - \frac{\partial D}{\partial \dot{q}_i} + Q_i $$
 を用いることで，このシステムの運動方程式は，
 $$m \ddot x + c \dot{x} + k {x} = u$$
 と導出することができる．
