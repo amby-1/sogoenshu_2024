@@ -17,7 +17,10 @@
 - SLIPモデルの物理シミュレータ構築：1回目の復習をもとに，SLIPモデルの数値シミュレーションを構築する（サンプルはC/C++, gnuplotで用意）．
 - SLIPモデルの物理シミュレータ構築・運動分析：SLIPモデルの数値シミュレーションを完成させ，その運動を分析する．適切な初期値を選べば，本当に走行運動を続けることができるのだろうか？ また，初期値を少し変えたとしても，同じような走行運動が出てくるのか？　などを基本に，各自の興味に応じて分析を行う．
 以下のような走行シミュレーションを各自で作ってもらいます．
-<img src="Figs/SLIP_overview.png" width="300" alt="SLIPモデル"> ![Animation](Figs/animation.gif)
+<div style="display: flex; align-items: flex-start;">
+  <img src="Figs/SLIP_overview.png" alt="SLIPモデル" width="300" style="vertical-align: middle; margin-right: 20px;">
+  <img src="Figs/animation.gif" alt="Animation" width="300" style="vertical-align: middle;">
+</div>
 
 # 注意点等
 - Ｃ/Ｃ++言語で講義資料やサンプルプログラムは準備します．
