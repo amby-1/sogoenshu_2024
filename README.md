@@ -19,7 +19,7 @@
 以下のような走行シミュレーションを各自で作ってもらいます．
 <div style="display: flex; align-items: flex-start;">
   <img src="Figs/SLIP_overview.png" alt="SLIPモデル" width="300" style="vertical-align: middle; margin-right: 20px;">
-  <img src="Figs/animation.gif" alt="Animation" width="500" style="vertical-align: middle;">
+  <img src="Figs/animation.gif" alt="Animation" width="700" style="vertical-align: middle;">
 </div>
 
 # 注意点等
