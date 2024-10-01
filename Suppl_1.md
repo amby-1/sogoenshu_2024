@@ -2,7 +2,7 @@
 
 # 注意事項
 本資料は補足資料です，すべて応用課題になりますので，課題をすべて終えて余裕のある方だけやってください．難易度は高くなります．
-詳細は[ReadMe](https://github.com/amby-1/sogoenshu_2023/blob/main/README.md)をよく読んで下さい．
+詳細は[ReadMe](https://github.com/amby-1/sogoenshu_2024/blob/main/README.md)をよく読んで下さい．
 
 # 補足１の目標
 ここまでで作ってもらったSLIPモデルを用いて運動を分析する．
