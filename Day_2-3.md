@@ -306,7 +306,7 @@ double x_td;
 double t;     // 時間 [s]
 
 // 初期値設定
-void set_iniVal(double x_, double dx_, double y_, double dy_, double gamma_, bool is_contact_, double x_td_){
+void set_iniVal(double x_, double y_, double dx_, double dy_, double gamma_, bool is_contact_, double x_td_){
     x = x_;
     dx = dx_;
     y = y_;
@@ -394,7 +394,7 @@ int main() {
 
     FILE *ofs = fopen("data_slip_run.dat", "w");  // ファイルを書き込みモードで開く
 
-    set_iniVal(0, 4.4023, 1.05, 0., 0.43017, false, 0.); // 初期化する
+    set_iniVal(0, 1.05, 4.4023,  0., 0.43017, false, 0.); // 初期化する
 
     for (double time = 0.; time < total_time - dt/2.; time += dt) { // 毎ステップ，微分方程式を数値的に解く
         fprintf(ofs, "%f, %f, %f, %f, %f, %f, %f, %f, %d\n", 
